@@ -1,25 +1,21 @@
+// models/userModel.js
+const mongoose = require('mongoose');
 
-const { getDatabase } = require("../config/mongoConnection");
-const { hash } = require("../helpers/bcryptjs");
+const userSchema = new mongoose.Schema({
+  businessType: { type: String, required: true },
+  companyLocation: { type: String, required: true, unique: true },
+  companyName: { type: String, required: true },
+  name: { type: String, required: true },
+  email: { type: String, required: true },
+  phoneNumber: { type: String, required: true },
+  password: { type: String, required: true },
+});
 
-class User {
-    static getCollection(){
-        const db = getDatabase(); // pastikan ini tidak null
-  return db.collection("users")
-    }
+userSchema.method('toJSON', function () {
+  const { __v, _id, ...object } = this.toObject();
+  object.id = _id;
+  return object;
+});
 
-    static async createUser(user){
-        return this.getCollection().insertOne({
-            businessType : user.businessType, 
-            companyLocation : user.companyLocation, 
-            companyName : user.companyName, 
-            name : user.name, 
-            email : user.email, 
-            phoneNumber : user.phoneNumber, 
-            password : hash(user.password)
-        })
-    }
-    
-}
-
-module.exports = User
+const User = mongoose.model('User', userSchema);
+module.exports = User; // ✅ CommonJS
