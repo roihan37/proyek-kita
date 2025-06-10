@@ -2,7 +2,7 @@
 
 **Status**: Dalam Pengembangan (WIP)
 
-> Proyek Kita adalah platform kolaboratif untuk merencanakan, melacak, dan memamerkan berbagai proyek bersama tim.
+> Proyek Kita adalah platform kolaboratif yang dirancang untuk membantu tim dalam merencanakan, memantau, dan mendokumentasikan berbagai proyek konstruksi secara efisien.
 
 ## 🎯 Tujuan
 
