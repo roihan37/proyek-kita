@@ -9,6 +9,8 @@ const userSchema = new mongoose.Schema({
   email: { type: String, required: true,  unique: true },
   phoneNumber: { type: String, required: true, unique: true },
   password: { type: String, required: true },
+  verifyPasswordToken: String,
+  verifyPasswordExpires: Date,
 });
 
 userSchema.method('toJSON', function () {
