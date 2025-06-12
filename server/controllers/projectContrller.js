@@ -103,7 +103,7 @@ module.exports = {
             if(!projectUser){
                 throw { name: "Forbidden"}
             }
-            const project = await Product.findByIdAndDelete(id)
+            const project = await Project.findByIdAndDelete(id)
             if(!project){
                 throw { name: "notFound"}
             }
